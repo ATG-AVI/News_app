@@ -50,10 +50,13 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                           color: Theme.of(context).colorScheme.background,
                         ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
+                              "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/01/20/317_1705754513.jpg"),
+                        ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
+                      SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -82,15 +85,20 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 10),
                       Row(
                         children: [
+                          SizedBox(width: 10),
                           CircleAvatar(
+                            radius: 15,
                             backgroundColor:
                                 Theme.of(context).colorScheme.primary,
-                          )
+                          ),
+                          SizedBox(width: 10),
+                          Text("Aviral Sharma")
                         ],
-                      )
+                      ),
+                      SizedBox(height: 10),
                     ],
                   ),
                 )
