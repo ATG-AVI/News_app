@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:news_app/components/bottom_navbar.dart';
 import 'package:news_app/pages/Home%20page/widgets/news_tile.dart';
 import 'package:news_app/pages/Home%20page/widgets/trending_card.dart';
+import 'package:news_app/pages/newsdetails/news_details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -34,11 +36,14 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              const SingleChildScrollView(
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     TrendingCard(
+                      Ontap: () {
+                        Get.to(NewsDetails());
+                      },
                       imageUrl:
                           "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/01/20/317_1705754513.jpg",
                       title:
@@ -48,6 +53,9 @@ class HomePage extends StatelessWidget {
                       time: "2 days ago",
                     ),
                     TrendingCard(
+                      Ontap: () {
+                        Get.to(NewsDetails());
+                      },
                       imageUrl:
                           "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/08/29/sachin-tendulkar-11705308896_1724899860.jpg",
                       title:
@@ -57,6 +65,9 @@ class HomePage extends StatelessWidget {
                       time: "2 days ago",
                     ),
                     TrendingCard(
+                      Ontap: () {
+                        Get.to(NewsDetails());
+                      },
                       imageUrl:
                           "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/08/28/2024-05-18t10175358117160076801720792301_1724846504.jpg",
                       title:
