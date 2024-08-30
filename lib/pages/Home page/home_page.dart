@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/components/bottom_navbar.dart';
 import 'package:news_app/pages/Home%20page/widgets/news_tile.dart';
 import 'package:news_app/pages/Home%20page/widgets/trending_card.dart';
 
@@ -14,69 +15,7 @@ class HomePage extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineLarge,
         ),
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            width: 200,
-            height: 70,
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(100)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(200)),
-                  child: Center(
-                    child: Icon(
-                      Icons.home,
-                      size: 25,
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      // color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(200)),
-                  child: Center(
-                    child: Icon(
-                      Icons.book,
-                      size: 25,
-                      color: Theme.of(context).colorScheme.secondaryContainer,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      // color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(200)),
-                  child: Center(
-                    child: Icon(
-                      Icons.settings,
-                      size: 25,
-                      color: Theme.of(context).colorScheme.secondaryContainer,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+      floatingActionButton: BottomNavbar(),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
