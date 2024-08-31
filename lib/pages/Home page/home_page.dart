@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_app/components/bottom_navbar.dart';
+import 'package:news_app/controller/news_controller.dart';
 import 'package:news_app/pages/Home%20page/widgets/news_tile.dart';
 import 'package:news_app/pages/Home%20page/widgets/trending_card.dart';
 import 'package:news_app/pages/newsdetails/news_details.dart';
@@ -10,18 +11,50 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NewsController newsController = Get.put(NewsController());
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "News",
-          style: Theme.of(context).textTheme.headlineLarge,
-        ),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(height: 40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primaryContainer,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Icon(Icons.dashboard),
+                  ),
+                  Text(
+                    "News App",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      newsController.getTrendingNews();
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Icon(Icons.person),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
