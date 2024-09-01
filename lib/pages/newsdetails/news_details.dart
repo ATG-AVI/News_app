@@ -2,9 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:news_app/model/news_models.dart';
 
 class NewsDetails extends StatelessWidget {
-  const NewsDetails({super.key});
+  final Article news;
+  const NewsDetails({super.key, required this.news});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,8 @@ class NewsDetails extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.network(
-                          "https://www.hindustantimes.com/ht-img/img/2024/08/30/550x309/PTI08-30-2024-000183B-0_1725027238099_1725027273400.jpg",
+                          news.urlToImage ??
+                              "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/08/29/sachin-tendulkar-11705308896_1724899860.jpg",
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -50,7 +53,7 @@ class NewsDetails extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                "‘Nothing but another act…’: Uddhav's Sena slams PM Modi's apology to Shivaji Maharaj on statue collapse",
+                news.title,
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -73,7 +76,7 @@ class NewsDetails extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   Text(
-                    "Aviral Sharma",
+                    news.author,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.secondaryContainer,
@@ -83,7 +86,7 @@ class NewsDetails extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                "PM Modi on Friday apologised for the collapse of Chhattrapati Shivaji Maharaj statue during his visit to Maharashtra.Shiv Sena (UBT) hit out at Prime Minister Narendra Modi for his apology for the collapse of the Chhatrapati Shivaji statue in Maharashtra's Sindhudurg district earlier this week. Shiv Sena (UBT) leader Priyanka Chaturvedi attacked PM Modi over the statue collapse, saying that it was hurriedly made for the prime minister's “prachaar” before the elections. ",
+                news.description ?? "No description",
                 style: TextStyle(
                   fontSize: 15,
                   color: Theme.of(context).colorScheme.secondaryContainer,

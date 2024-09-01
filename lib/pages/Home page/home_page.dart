@@ -70,22 +70,27 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: newsController.trendingNewsList
-                      .map(
-                        (e) => TrendingCard(
-                          Ontap: () {},
-                          imageUrl: e.urlToImage!,
-                          title: e.title!,
-                          author: e.author ?? "Unknown",
-                          tag: "Trending no 1",
-                          time: "2 days ago",
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
+                  scrollDirection: Axis.horizontal,
+                  child: Obx(
+                    () => Row(
+                      children: newsController.trendingNewsList
+                          .map(
+                            (e) => TrendingCard(
+                              Ontap: () {
+                                Get.to(NewsDetails(
+                                  news: e,
+                                ));
+                              },
+                              imageUrl: e.urlToImage!,
+                              title: e.title!,
+                              author: e.author ?? "Unknown",
+                              tag: "Trending no 1",
+                              time: "2 days ago",
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  )),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,34 +106,19 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              Column(
-                children: [
-                  NewsTile(
-                    imageUrl:
-                        "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/01/20/317_1705754513.jpg",
-                    title:
-                        "3400 साल पहले से है रामकथा, वेदों में राम नाम:ब्रह्मा के वरदान और नारद के शाप सहित राम अवतार के 4 कारण",
-                    author: "Aviral Sharma",
-                    time: "2 days ago",
-                  ),
-                  NewsTile(
-                    imageUrl:
-                        "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/08/29/sachin-tendulkar-11705308896_1724899860.jpg",
-                    title:
-                        "3400 साल पहले से है रामकथा, वेदों में राम नाम:ब्रह्मा के वरदान और नारद के शाप सहित राम अवतार के 4 कारण",
-                    author: "Aviral Sharma",
-                    time: "2 days ago",
-                  ),
-                  NewsTile(
-                    imageUrl:
-                        "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/01/20/317_1705754513.jpg",
-                    title:
-                        "3400 साल पहले से है रामकथा, वेदों में राम नाम:ब्रह्मा के वरदान और नारद के शाप सहित राम अवतार के 4 कारण",
-                    author: "Aviral Sharma",
-                    time: "2 days ago",
-                  ),
-                ],
-              )
+              Obx(() => Column(
+                      children: newsController.NewsForYou5.map(
+                    (e) => NewsTile(
+                      onTap: () {
+                        Get.to(NewsDetails(news: e));
+                      },
+                      imageUrl: e.urlToImage ??
+                          "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2024/08/29/sachin-tendulkar-11705308896_1724899860.jpg",
+                      title: e.title!,
+                      author: e.author! ?? "Aviral",
+                      time: "now",
+                    ),
+                  ).toList())),
             ],
           ),
         ),

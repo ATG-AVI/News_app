@@ -25,6 +25,7 @@ class ArticlePage extends StatelessWidget {
                         "3400 साल पहले से है रामकथा, वेदों में राम नाम:ब्रह्मा के वरदान और नारद के शाप सहित राम अवतार के 4 कारण",
                     author: "Aviral Sharma",
                     time: "2 days ago",
+                    onTap: () {},
                   ),
                   NewsTile(
                     imageUrl:
@@ -33,6 +34,7 @@ class ArticlePage extends StatelessWidget {
                         "3400 साल पहले से है रामकथा, वेदों में राम नाम:ब्रह्मा के वरदान और नारद के शाप सहित राम अवतार के 4 कारण",
                     author: "Aviral Sharma",
                     time: "2 days ago",
+                    onTap: () {},
                   ),
                   NewsTile(
                     imageUrl:
@@ -41,6 +43,7 @@ class ArticlePage extends StatelessWidget {
                         "3400 साल पहले से है रामकथा, वेदों में राम नाम:ब्रह्मा के वरदान और नारद के शाप सहित राम अवतार के 4 कारण",
                     author: "Aviral Sharma",
                     time: "2 days ago",
+                    onTap: () {},
                   ),
                 ],
               )

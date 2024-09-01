@@ -7,6 +7,13 @@ import 'package:news_app/model/news_models.dart';
 class NewsController extends GetxController {
   RxList<Article> trendingNewsList = <Article>[].obs;
   RxList<Article> NewsForYouList = <Article>[].obs;
+  RxList<Article> NewsForYou5 = <Article>[].obs;
+
+  void onInit() async {
+    super.onInit();
+    getNewsForYou();
+    getTrendingNews();
+  }
 
   Future<void> getTrendingNews() async {
     var baseURL =
@@ -44,6 +51,7 @@ class NewsController extends GetxController {
         for (var news in articles) {
           NewsForYouList.add(Article.fromJson(news));
         }
+        NewsForYou5.value = NewsForYouList.sublist(0, 5).obs;
       } else {
         print("Something went Wrong in trending news");
       }
